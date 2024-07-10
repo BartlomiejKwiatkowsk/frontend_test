@@ -1,0 +1,31 @@
+<div class="content-wrapper">
+  <h1>Nagłówek H1</h1>
+  <div class="blocks">
+    <div class="block">
+      <h2>BLOK PIERWSZY</h2>
+      <label>
+        <input type="radio" name="option" [(ngModel)]="selectedOption" value="first">
+        <span>Opcja pierwsza</span>
+      </label>
+      <label>
+        <input type="radio" name="option" [(ngModel)]="selectedOption" value="second">
+        <span>Opcja druga</span>
+      </label>
+      <label>
+        <input type="radio" name="option" [(ngModel)]="selectedOption" value="random">
+        <span>Opcja losowa</span>
+      </label>
+    </div>
+    <div class="block">
+      <h2>BLOK DRUGI</h2>
+      <button (click)="changeContent('replace')">ZASTĄP</button>
+      <button (click)="changeContent('append')">DOKLEJ</button>
+    </div>
+    <div class="block">
+      <h2>BLOK Z DŁUGĄ NAZWĄ KTÓRA SAMA SIE PRZYTNIE...</h2>
+      <div *ngFor="let item of usedContent">{{item}}</div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec vehicula ipsum. Sed auctor, odio id imperdiet ornare, nisi dui ullamcorper erat, ac venenatis libero ipsum vel tortor. Integer consequat massa sem, sodales cursus lorem ultricies vitae. Sed ut dolor in nulla vestibulum hendrerit et at quam. Curabitur vitae lacus in risus consequat sagittis eu sed velit. Maecenas euismod eu orci et porttitor. Nunc placerat vestibulum tellus, et feugiat libero sollicitudin non. Curabitur lobortis porta ante, vitae hendrerit velit mollis at. In hac habitasse platea dictumst. Phasellus fringilla sem augue, et facilisis risus pellentesque vel. Vivamus ultricies vitae elit eget interdum. Praesent vestibulum arcu at ex ornare, id laoreet dui aliquam.
+      </p>
+    </div>
+  </div>
+</div>

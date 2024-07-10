@@ -1,0 +1,229 @@
+@import 'src/styles/variables';
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: $footer-color;
+  color: #2A2D36;
+  border-top: 1px solid black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  z-index: 1000;
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    margin: 0.5rem 0;
+  }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+
+    .css-box {
+      position: relative;
+      display: inline-block;
+
+      .css-box-bg {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 5rem;
+        height: 5rem;
+        border: 1px solid #2A2D36;
+        z-index: -1;
+        transform: translateY(-50%) translateX(-10%);
+        transition: transform 0.5s, border-color 0.5s;
+      }
+
+      .css-text {
+        color: #2A2D36;
+        display: block;
+        position: relative;
+        font-size: 1.5rem;
+        z-index: 1;
+      }
+
+      &:hover .css-box-bg {
+        transform: translateY(-50%) translateX(-10%) rotate(360deg);
+        border-color: #CF7501;
+      }
+
+      &:hover .css-text {
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .footer-center {
+    text-align: center;
+    position: relative;
+    font-size: 1.5rem;
+
+    .centered-text {
+      position: relative;
+      display: inline-block;
+
+      &:before,
+      &:after {
+        content: '_____';
+        position: absolute;
+        transform: translateY(-25%);
+        color: #2A2D36;
+      }
+
+      &:before {
+        left: -3rem;
+      }
+
+      &:after {
+        right: -3rem;
+      }
+    }
+  }
+
+  .footer-right {
+    text-align: center;
+
+    .toggle-settings-button {
+      width: 15rem;
+      background: transparent;
+      color: #A2A8B6;
+      border: 1px solid #2A2D36;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      text-align: center;
+
+      &:hover {
+        border: 1px solid white;
+        color: white;
+      }
+    }
+  }
+}
+
+.settings-container {
+  position: fixed;
+  bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10rem;
+  margin-right: 20rem;
+  z-index: 999;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(100%);
+}
+
+.settings-container.show {
+  transform: translateY(-100%);
+}
+
+.settings {
+  padding: 0.5rem 1.2rem;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  color: black;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.8), 0 0 2rem rgba(0, 0, 0, 1);
+  border: 1px solid #2A2D36;
+  border-radius: 4px;
+  text-align: left;
+  margin-right: 3.2rem;
+
+  button {
+    background: none;
+    border: none;
+    color: black;
+    text-align: left;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      color: #CF7501;
+    }
+  }
+}
+
+@media (min-width: 601px) {
+  footer {
+    flex-direction: row;
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      margin: 0;
+    }
+
+    .footer-left {
+      flex: 1;
+      margin-left: 1rem;
+    }
+
+    .footer-center {
+      flex: 1;
+    }
+
+    .footer-right {
+      flex: 1;
+      text-align: right;
+      margin-right: 1rem;
+
+      .toggle-settings-button {
+        margin-right: 3rem;
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+
+    .footer-center {
+      display: none;
+    }
+
+    .footer-left,
+    .footer-right {
+      margin: 0.5rem 0;
+      flex: 1;
+    }
+
+    .footer-left {
+      margin-left: 1rem;
+    }
+
+    .footer-right {
+      margin-right: 2rem;
+      display: flex;
+      justify-content: flex-end;
+      width: auto;
+
+      .toggle-settings-button {
+        margin-right: 8vw;
+        width: 40vw;
+        text-align: center;
+      }
+    }
+  }
+
+  .settings-container {
+    padding-right: 2rem;
+  }
+  .settings
+  {
+    margin-right: 12vw;
+  }
+
+}
